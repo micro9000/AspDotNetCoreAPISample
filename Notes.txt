@@ -1,0 +1,77 @@
+# dotnet new
+
+# dotnet new webapi -n ProjectName
+
+# dotnet run
+# dotnet build
+
+# dotnet add package Microsoft.EntityFrameworkCore -> to instal latest version do not include version
+# dotnet add package Microsoft.EntityFrameworkCore.Design
+# dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+# dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
+# dotnet add package Microsoft.AspNetCore.JsonPatch
+# dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson
+
+# dotnet tool install --global dotnet-ef
+
+# dotnet ef migrations add InitialMigration
+--> Done. To undo this action, use 'ef migrations remove'
+
+# dotnet ef database update - to run the migration
+
+------------------------------------------------
+
+Services Lifetimes:
+- AddSingleton - same for every request
+- AddScoped - Created once per client request
+- Transient - New instance created every time
+
+------------------------------------------------
+
+CommanderAPI - Password
+
+Change authentication mode with SSMS
+In SQL Server Management Studio Object Explorer, right-click the server, and then click Properties.
+
+On the Security page, under Server authentication, select the new server authentication mode, and then click OK.
+
+In the SQL Server Management Studio dialog box, click OK to acknowledge the requirement to restart SQL Server.
+
+In Object Explorer, right-click your server, and then click Restart. If SQL Server Agent is running, it must also be restarted.
+(Restart the SQL Server service.)
+
+
+------------------------------------------------
+
+Data Transfer Objects
+https://stackoverflow.com/questions/1051182/what-is-data-transfer-object
+
+------------------------------------------------
+
+JSON Patch standard
+- JSON patch standard specified in RFC 6902
+- 6 Operations
+    - Add
+    - Remove
+    - Replace
+    - Copy
+    - Move
+    - Test
+
+example patch object:
+[
+    {
+        "op" : "replace",
+        "path" : "/howto", // you can supply nested attribute if your object is complex
+        "value" : "Some new value"
+    },
+    {
+        "op" : "test",
+        "path": "/line",
+        "value" : "dotnet new"
+    }
+]
+
+
+.NET Core CLI
+https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet
